@@ -1,7 +1,5 @@
 package sample
 
-import kotlin.js.JsName
-
 expect class Sample() {
     fun checkMe(): Int
 }
@@ -10,5 +8,9 @@ expect object Platform {
     val name: String
 }
 
-@JsName("Test")
-fun hello(): String = "Hello from ${Platform.name}"
+fun hello(string: String? = null): String {
+    if (string.isNullOrBlank()) {
+        return ""
+    }
+    return string
+}
